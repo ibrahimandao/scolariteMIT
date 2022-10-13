@@ -10,6 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class EtudiantService {  
   endpoint = 'http://localhost:5154/api/';
+  test : any = [];
 
   // Http Headers
   httpOptions = {
@@ -24,8 +25,9 @@ export class EtudiantService {
     return new Observable<Etudiant>((observer)=>{
       return this.http
       .get<Etudiant>(this.endpoint + 'Etudiant/find/' + matricule +'/').subscribe((data: any) => {
-        const etudiant = new Etudiant();
-        etudiant.loadFromJson(data);
+        const etudiant = data;
+        //const etudiant = new Etudiant();
+        //etudiant.loadFromJson(data);
         observer.next(etudiant);
         observer.complete();
       },error =>{
@@ -36,14 +38,10 @@ export class EtudiantService {
     })
   }
 
-  /*findAll(matricule : string) : Observable<Etudiant>((observer) =>{
-    return this.http
-      .get<Etudiant>(this.endpoint + 'Etudiant/find/' + matricule).subscribe((data: {}) => {
-        this.etudiant = data;
-        console.log(data);
-      },error =>{
-        
-      }
-      );
-  }*/
+  findAll() {
+    this.test = this.http.get(this.endpoint + 'Etudiant/All/');
+    console.log(this.test);
+
+    return this.test;
+  }
 }

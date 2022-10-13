@@ -1,5 +1,14 @@
 <div>
-    Nom : {{etudiant.Name}}
-    Prénom : {{etudiant.Firstname}}
-    Email : {{etudiant.Email}}
+    <div >
+        Nom : {{etudiant.name}}
+        Prénom : {{etudiant.firstname}}
+        Email : {{etudiant.email}}
+    </div>
+
+    <div *ngFor="let item of etudiants" >
+        Nom : {{item.name}}
+        Prénom : {{item.firstname}}
+        Email : {{item.email}}
+    </div>
 </div>
+

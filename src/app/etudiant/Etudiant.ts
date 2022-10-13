@@ -1,22 +1,22 @@
 export class Etudiant{
     
-    Name : string;
-    Email : string;
+    name : string;
+    email : string;
     Phone : string;
-    Matricule : string;
-    City : string;
-    Firstname : string;
+    matricule : string;
+    city : string;
+    firstname : string;
 
     /**
      *
      */
     constructor(pNom:string ='',pFirstName:string='',pMail:string='',pTel:string='',pMatricule:string='',pCity:string='') {        
-        this.Name = pNom;
-        this.Email = pMail;
+        this.name = pNom;
+        this.email = pMail;
         this.Phone = pTel;
-        this.Matricule = pMatricule;
-        this.City = pCity;
-        this.Firstname = pFirstName;
+        this.matricule = pMatricule;
+        this.city = pCity;
+        this.firstname = pFirstName;
 
     }
 
