@@ -1,0 +1,46 @@
+<div class="form">
+    <form [formGroup]="etudiantform" (ngSubmit)="addStudent()">
+         <div class="formGroup">
+            <label>Nom</label>
+            <input type="text"  class="form-group" formControlName="name">
+         </div>
+
+         <div class="formGroup">
+            <label>Prénom</label>
+            <input type="text"  class="form-group" formControlName="firstname">
+         </div>
+
+         <div class="formGroup">
+            <label>Email</label>
+            <input type="email"  class="form-group" formControlName="email">
+         </div>
+
+         <div class="formGroup">
+            <label>Téléphone</label>
+            <input type="text"  class="form-group" formControlName="phone">
+         </div>
+
+         <div class="formGroup">
+            <label>Ville</label>
+            <input type="text"  class="form-group" formControlName="city">
+         </div>
+
+         <div class="formGroup">
+            <label>Matricule</label>
+            <input type="text"  class="form-group" formControlName="matricule">
+         </div>
+
+         <div class="formGroup">
+            <label>Libelle formation</label>
+            <input type="text"  class="form-group" formControlName="libelle">
+         </div>
+
+         <div class="formGroup">
+            <label>Niveau</label>
+            <input type="text"  class="form-group" formControlName="niveau">
+         </div>
+
+         <button type="submit" class = "btn btn-primary">Valider</button>
+    </form>
+</div>
+

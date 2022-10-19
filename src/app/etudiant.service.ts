@@ -46,6 +46,6 @@ export class EtudiantService {
   }
 
   add(etu : Etudiant){
-    this.http.post(this.endpoint + 'Etudiant/Add/',etu);
+    return this.http.post(this.endpoint + 'Etudiant/Add/',etu);
   }
 }
