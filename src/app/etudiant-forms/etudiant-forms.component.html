@@ -1,46 +1,56 @@
-<div class="form">
-    <form [formGroup]="etudiantform" (ngSubmit)="addStudent()">
-         <div class="formGroup">
-            <label>Nom</label>
-            <input type="text"  class="form-group" formControlName="name">
-         </div>
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>Cours Complet Bootstrap 4</title>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     </head>
+     <body>
+    <div class="container">
+      <h1>Ajout d'un étudiant</h1>
+      <form [formGroup]="etudiantform" (ngSubmit)="addStudent()">
+            <div class="form-group">
+               <label>Nom</label>
+               <input type="text"  class="form-control" formControlName="name">
+            </div>
 
-         <div class="formGroup">
-            <label>Prénom</label>
-            <input type="text"  class="form-group" formControlName="firstname">
-         </div>
+            <div class="form-group">
+               <label>Prénom</label>
+               <input type="text"  class="form-control" formControlName="firstname">
+            </div>
 
-         <div class="formGroup">
-            <label>Email</label>
-            <input type="email"  class="form-group" formControlName="email">
-         </div>
+            <div class="form-group">
+               <label>Email</label>
+               <input type="email"  class="form-control" formControlName="email">
+            </div>
 
-         <div class="formGroup">
-            <label>Téléphone</label>
-            <input type="text"  class="form-group" formControlName="phone">
-         </div>
+            <div class="form-group">
+               <label>Téléphone</label>
+               <input type="text"  class="form-control" formControlName="phone">
+            </div>
 
-         <div class="formGroup">
-            <label>Ville</label>
-            <input type="text"  class="form-group" formControlName="city">
-         </div>
+            <div class="form-group">
+               <label>Ville</label>
+               <input type="text"  class="form-control" formControlName="city">
+            </div>
 
-         <div class="formGroup">
-            <label>Matricule</label>
-            <input type="text"  class="form-group" formControlName="matricule">
-         </div>
+            <div class="form-group">
+               <label>Matricule</label>
+               <input type="text"  class="form-control" formControlName="matricule">
+            </div>
 
-         <div class="formGroup">
-            <label>Libelle formation</label>
-            <input type="text"  class="form-group" formControlName="libelle">
-         </div>
+            <div class="form-group">
+               <label>Libelle formation</label>
+               <input type="text"  class="form-control" formControlName="libelle">
+            </div>
 
-         <div class="formGroup">
-            <label>Niveau</label>
-            <input type="text"  class="form-group" formControlName="niveau">
-         </div>
+            <div class="form-group">
+               <label>Niveau</label>
+               <input type="text"  class="form-control" formControlName="niveau">
+            </div>
 
-         <button type="submit" class = "btn btn-primary">Valider</button>
-    </form>
+            <button type="submit" class = "btn btn-primary">Valider</button>
+      </form>
 </div>
-
+</body>
+</html>

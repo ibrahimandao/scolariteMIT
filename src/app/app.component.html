@@ -1,11 +1,20 @@
-<button routerLink="/etudiant"  class="btn btn-primary">
-   Etudiant
-</button>
-
-<button routerLink="/addetudiant"  class="btn btn-primary">
-  Ajout Etudiant
-</button>
-
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scolarité MIT</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div class="container">
+      <nav>  
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" routerLink="/etudiant">Liste des étudiants</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/addetudiant">Ajouter étudiant</a></li>
+        </ul>
+      </nav>      
+    </div>
+  </body>
+</html>
 
 <router-outlet></router-outlet>
