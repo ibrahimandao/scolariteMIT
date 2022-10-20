@@ -1,14 +1,39 @@
-<div>
-    <div >
-        Nom : {{etudiant.name}}
-        Prénom : {{etudiant.firstname}}
-        Email : {{etudiant.email}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des étudiants</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Liste des étudiants</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Matricule</th>
+            <th>Ville</th>
+            <th>Téléphone</th>
+            <th>Formation</th>
+            <th>Niveau</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of etudiants">
+            <td>{{item.name}}</td>
+            <td>{{item.firstname}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.city}}</td>
+            <td>{{item.matricule}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.formation.libelle}}</td>
+            <td>{{item.formation.niveau}} iéme année</td>
+          </tr>          
+        </tbody>
+      </table>
     </div>
-
-    <div *ngFor="let item of etudiants" >
-        Nom : {{item.name}}
-        Prénom : {{item.firstname}}
-        Email : {{item.email}}
-    </div>
-</div>
-
+  </body>
+</html>
