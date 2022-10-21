@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup } from '@angular/forms';
-import { EtudiantService } from '../services/etudiant/etudiant.service';
+
 import { Etudiant } from '../etudiant/Etudiant';
+import { EtudiantService } from '../services/etudiant/etudiant.service';
 
 @Component({
   selector: 'app-etudiant-forms',
@@ -9,6 +10,8 @@ import { Etudiant } from '../etudiant/Etudiant';
   styleUrls: ['./etudiant-forms.component.css']
 })
 export class EtudiantFormsComponent implements OnInit {
+
+  formationSelected : number = 3;
   etudiantform : FormGroup = new FormGroup('');
   etudiant = new Etudiant();
   constructor(private fb : FormBuilder,private service : EtudiantService) { }
@@ -21,9 +24,8 @@ export class EtudiantFormsComponent implements OnInit {
       phone : [],
       matricule : [],
       city : [],
-      firstname : [],  
-      libelle: [],
-      niveau: [],
+      firstname : [], 
+      formationId: [],
     });
   }
 

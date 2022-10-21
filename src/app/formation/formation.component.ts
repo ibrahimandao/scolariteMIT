@@ -15,6 +15,13 @@ export class FormationComponent implements OnInit {
     this.service.findAll().subscribe((data: any) => {
       this.formations = data;
     });
+
+    
+  }
+
+  deleteFormation(id : number) {
+    this.service.delete(id).subscribe(() => {
+    });
   }
 
 }

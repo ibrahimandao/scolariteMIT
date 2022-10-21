@@ -16,7 +16,16 @@ export class FormationFormsComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.formationform = this.fb.group({
+      libelle: [],
+      niveau: [],
+    });
   }
 
+   addFormation(){
+    this.formation = new Formation(this.formationform.value.libelle,this.formationform.value.niveau);
+    this.service.add(this.formation).subscribe((data: any) => {     
+      console.log(data);
+    });
+  }
 }

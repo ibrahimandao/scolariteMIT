@@ -1,1 +1,27 @@
-<p>formation-forms works!</p>
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>Cours Complet Bootstrap 4</title>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     </head>
+     <body>
+    <div class="container">
+      <h1>Ajout d'une formation</h1>
+      <form [formGroup]="formationform" (ngSubmit)="addFormation()">           
+
+            <div class="form-group">
+               <label>Libelle formation</label>
+               <input type="text"  class="w-25 form-control" formControlName="libelle">
+            </div>
+
+            <div class="form-group">
+               <label>Niveau</label>
+               <input type="text"  class="w-25 form-control" formControlName="niveau">
+            </div>
+            <br/>
+            <button type="submit" class = "btn btn-primary">Valider</button>
+      </form>
+</div>
+</body>
+</html>
