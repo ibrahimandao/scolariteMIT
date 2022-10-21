@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup } from '@angular/forms';
-import { EtudiantService } from '../etudiant.service';
+import { EtudiantService } from '../services/etudiant/etudiant.service';
 import { Etudiant } from '../etudiant/Etudiant';
 
 @Component({
@@ -28,8 +28,6 @@ export class EtudiantFormsComponent implements OnInit {
   }
 
   addStudent(){
-    //console.log(this.etudiantform.value);
-
     this.etudiant = Etudiant.loadFromFormGroup(this.etudiantform.value);
     this.service.add(this.etudiant).subscribe((data: any) => {     
       console.log(data);

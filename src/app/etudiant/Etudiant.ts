@@ -1,4 +1,4 @@
-import { FormGroup } from "@angular/forms";
+import { Formation } from "../formation/Formation";
 
 export class Etudiant{
    
@@ -36,13 +36,3 @@ export class Etudiant{
 
 }
 
-export class Formation{
-    
-    libelle : string
-    niveau : number
-
-    constructor(pLibelle : string='',pNiv: number =0){
-        this.libelle = pLibelle;
-        this.niveau = pNiv;
-    }
-}
