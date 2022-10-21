@@ -4,18 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EtudiantService } from './etudiant.service';
+import { EtudiantService } from './services/etudiant/etudiant.service';
 import { EtudiantComponent } from './etudiant/etudiant.component';
-import { GerantComponent } from './gerant/gerant.component';
 import { EtudiantFormsComponent } from './etudiant-forms/etudiant-forms.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormationFormsComponent } from './formation-forms/formation-forms.component';
+import { FormationComponent } from './formation/formation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EtudiantComponent,
-    GerantComponent,
-    EtudiantFormsComponent
+    EtudiantFormsComponent,
+    FormationFormsComponent,
+    FormationComponent
   ],
   imports: [
     BrowserModule,
