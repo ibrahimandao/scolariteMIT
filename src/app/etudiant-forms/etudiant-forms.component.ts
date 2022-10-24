@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup } from '@angular/forms';
 
 import { Etudiant } from '../etudiant/Etudiant';
+import { Formation } from '../formation/Formation';
 import { EtudiantService } from '../services/etudiant/etudiant.service';
+import { FormationService } from '../services/formation/FormationService';
 
 @Component({
   selector: 'app-etudiant-forms',
@@ -11,10 +13,10 @@ import { EtudiantService } from '../services/etudiant/etudiant.service';
 })
 export class EtudiantFormsComponent implements OnInit {
 
-  formationSelected : number = 3;
   etudiantform : FormGroup = new FormGroup('');
   etudiant = new Etudiant();
-  constructor(private fb : FormBuilder,private service : EtudiantService) { }
+  formations : any[] = [];
+  constructor(private fb : FormBuilder,private service : EtudiantService,private serviceFormation : FormationService) { }
 
   ngOnInit(): void {
 
@@ -26,6 +28,10 @@ export class EtudiantFormsComponent implements OnInit {
       city : [],
       firstname : [], 
       formationId: [],
+    });
+
+    this.serviceFormation.findAll().subscribe((data: any) => {
+      this.formations = data;
     });
   }
 

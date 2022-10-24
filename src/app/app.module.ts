@@ -10,6 +10,7 @@ import { EtudiantFormsComponent } from './etudiant-forms/etudiant-forms.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormationFormsComponent } from './formation-forms/formation-forms.component';
 import { FormationComponent } from './formation/formation.component';
+import { FormationUpdateFormComponent } from './formation-update-form/formation-update-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormationComponent } from './formation/formation.component';
     EtudiantComponent,
     EtudiantFormsComponent,
     FormationFormsComponent,
-    FormationComponent
+    FormationComponent,
+    FormationUpdateFormComponent
   ],
   imports: [
     BrowserModule,

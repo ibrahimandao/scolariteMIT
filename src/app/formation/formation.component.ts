@@ -24,4 +24,8 @@ export class FormationComponent implements OnInit {
     });
   }
 
+
+  updateFormation(id : number) {
+    
+  }
 }
