@@ -37,12 +37,20 @@ export class EtudiantService {
   }
 
   findAll() {
-    this.result = this.http.get(this.endpoint + 'Etudiant/All/');
+    this.result = this.http.get(this.endpoint + 'Etudiant/all/');
 
     return this.result;
   }
 
+  findById(id : number) {
+    return this.http.get(this.endpoint + 'Etudiant/findbyid/'+ id +'/');
+  }
+
   add(etu : Etudiant){
-    return this.http.post(this.endpoint + 'Etudiant/Add/',etu);
+    return this.http.post(this.endpoint + 'Etudiant/add/',etu);
+  }
+
+  update(id: number,etu : Etudiant){
+    return this.http.put(this.endpoint + 'Etudiant/update/'+ id +'/',etu);
   }
 }
