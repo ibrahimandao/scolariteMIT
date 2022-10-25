@@ -12,6 +12,7 @@ import { FormationFormsComponent } from './formation-forms/formation-forms.compo
 import { FormationComponent } from './formation/formation.component';
 import { FormationUpdateFormComponent } from './formation-update-form/formation-update-form.component';
 import { EtudiantUpdateFormComponent } from './etudiant-update-form/etudiant-update-form.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EtudiantUpdateFormComponent } from './etudiant-update-form/etudiant-upd
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [EtudiantService],
   bootstrap: [AppComponent]

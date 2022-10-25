@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of formations">
+          <tr *ngFor="let item of formations | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord}">
             <td>{{item.libelle}}</td>
             <td>{{item.niveau}}</td>  
             <td>
@@ -27,6 +27,9 @@
           </tr>          
         </tbody>
       </table>
+      <div class="pagination">
+        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+    </div>
     </div>
   </body>
 </html>

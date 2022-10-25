@@ -8,12 +8,15 @@ import { FormationService } from '../services/formation/FormationService';
 })
 export class FormationComponent implements OnInit {
   formations : any = []
+  page : number = 1;
+  totalRecord : any
   constructor(private service : FormationService) { }
 
   ngOnInit(): void {
 
     this.service.findAll().subscribe((data: any) => {
       this.formations = data;
+      this.totalRecord = this.formations.lenght
     });
 
     

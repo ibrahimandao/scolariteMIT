@@ -9,19 +9,16 @@ import { Etudiant } from './Etudiant';
 })
 export class EtudiantComponent implements OnInit {
   etudiant : Etudiant = new Etudiant();
+  totalRecord:number = 0;
+  page : number = 1;
 
   etudiants : any = [];
   constructor(private service : EtudiantService) { }
 
   ngOnInit(): void {
-    /*this.service.find('MIT0002').subscribe((data: Etudiant) => {
-      this.etudiant = data;
-      console.log(data);
-    });*/
-
     this.service.findAll().subscribe((data: Etudiant) => {
       this.etudiants = data;
-      console.log(data);
+      this.totalRecord = this.etudiants.lenght;
     });
   }
   

@@ -35,11 +35,8 @@ export class EtudiantUpdateFormComponent implements OnInit {
     this.getCurrentData(this.router.snapshot.params['id']);
   }
 
-  updateEtudiant(){
-    console.log(this.etudiantform);
+  updateEtudiant(){   
     this.etudiant = Etudiant.loadFromFormGroup(this.etudiantform.value);
-
-    console.log(this.etudiant);
     this.service.update(this.router.snapshot.params['id'],this.etudiant).subscribe((data: any) => {     
       this.alerte = true;
     });
@@ -57,5 +54,9 @@ export class EtudiantUpdateFormComponent implements OnInit {
         formationId: [data["formationId"]],
       });
     });
+  }
+
+  CloseAlerte(){
+    this.alerte = false;
   }
 }
