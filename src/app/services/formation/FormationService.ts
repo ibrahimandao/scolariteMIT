@@ -18,12 +18,20 @@ import { Formation } from 'src/app/formation/Formation';
 
     constructor(private http: HttpClient) { }
 
+    findById(id: number) {
+      return this.http.get(this.endpoint + 'Formation/Find/'+ id +'/');
+    }
+
     findAll() {
        return this.http.get(this.endpoint + 'Formation/All/');
     }
 
     add(form : Formation){
       return this.http.post(this.endpoint + 'Formation/Add/',form);
+    }
+
+    update(id: number,form : Formation){
+      return this.http.put(this.endpoint + 'Formation/update/'+ id +'/',form);
     }
 
     delete(id : number){

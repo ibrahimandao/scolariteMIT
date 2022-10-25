@@ -20,8 +20,10 @@
           <tr *ngFor="let item of formations">
             <td>{{item.libelle}}</td>
             <td>{{item.niveau}}</td>  
-            <td><a (click)="updateFormation(item.id)" href="/formation"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
-              <a (click)="deleteFormation(item.id)" href="/formation"><img src="../../assets/supp.jpg" width="25px" height="25px"></a></td>          
+            <td>
+              <a routerLink="/updateformation/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
+              <a (click)="deleteFormation(item.id)" href="/formation"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
+            </td>          
           </tr>          
         </tbody>
       </table>

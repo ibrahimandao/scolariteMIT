@@ -14,8 +14,8 @@
             <th>Nom</th>
             <th>Prénom</th>
             <th>Email</th>
-            <th>Matricule</th>
             <th>Ville</th>
+            <th>Matricule</th>
             <th>Téléphone</th>
             <th>Formation</th>
             <th>Niveau</th>
@@ -33,7 +33,7 @@
             <td>{{item.formation.libelle}}</td>
             <td>{{item.formation.niveau}} iéme année</td>
             <td>
-                <a (click)="updateEtudiant(item.id)" href="/etudiant"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
+              <a routerLink="/updateetudiant/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
                 <a (click)="deleteEtudiant(item.id)" href="/etudiant"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
             </td>
           </tr>          

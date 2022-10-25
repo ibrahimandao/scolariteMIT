@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormationFormsComponent } from './formation-forms/formation-forms.component';
 import { FormationComponent } from './formation/formation.component';
 import { FormationUpdateFormComponent } from './formation-update-form/formation-update-form.component';
+import { EtudiantUpdateFormComponent } from './etudiant-update-form/etudiant-update-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormationUpdateFormComponent } from './formation-update-form/formation-
     EtudiantFormsComponent,
     FormationFormsComponent,
     FormationComponent,
-    FormationUpdateFormComponent
+    FormationUpdateFormComponent,
+    EtudiantUpdateFormComponent
   ],
   imports: [
     BrowserModule,

@@ -7,8 +7,8 @@
      </head>
      <body>
     <div class="container">
-      <h1>Ajout d'un étudiant</h1>
-      <form [formGroup]="etudiantform" (ngSubmit)="addStudent()">
+      <h1>Mise à jour d'un étudiant</h1>
+      <form [formGroup]="etudiantform" (ngSubmit)="updateEtudiant()">
             <div class="form-group">
                <label>Nom</label>
                <input type="text"  class="w-25 form-control" formControlName="name">
@@ -48,7 +48,7 @@
                </select>
             </div>
             <br/>
-            <button type="submit" class = "btn btn-primary">Valider</button>
+            <button type="submit" class = "btn btn-primary">Update</button>
       </form>
 </div>
 </body>
