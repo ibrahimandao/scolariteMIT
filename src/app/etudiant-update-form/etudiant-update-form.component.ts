@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Etudiant } from '../etudiant/Etudiant';
+import { Etudiant } from '../models/Etudiant';
 import { EtudiantService } from '../services/etudiant/etudiant.service';
 import { FormationService } from '../services/formation/FormationService';
 

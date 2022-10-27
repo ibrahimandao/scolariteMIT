@@ -11,8 +11,8 @@
          <strong>Mise à jour effectuée avec succès!</strong>
          <button (click)="CloseAlerte()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
      </div>
-      <h1>Mise à jour d'un étudiant</h1>
-      <form [formGroup]="etudiantform" (ngSubmit)="updateEtudiant()">
+      <h1>Mise à jour d'un formateur</h1>
+      <form [formGroup]="formateurform" (ngSubmit)="updateFormateur()">
             <div class="form-group">
                <label>Nom</label>
                <input type="text"  class="w-25 form-control" formControlName="name">
@@ -26,30 +26,6 @@
             <div class="form-group">
                <label>Email</label>
                <input type="email"  class="w-25 form-control" formControlName="email">
-            </div>
-
-            <div class="form-group">
-               <label>Téléphone</label>
-               <input type="text"  class="w-25 form-control" formControlName="phone">
-            </div>
-
-            <div class="form-group">
-               <label>Ville</label>
-               <input type="text"  class="w-25 form-control" formControlName="city">
-            </div>
-
-            <div class="form-group">
-               <label>Matricule</label>
-               <input type="text"  class="w-25 form-control" formControlName="matricule">
-            </div>           
-
-            <div class="form-group">
-               <label>Formation</label>
-               <select   class="w-25 form-control"  formControlName="formationId">
-                  <option *ngFor="let item of formations" value="{{item.id}}">
-                     {{item.libelle}}
-                  </option>                  
-               </select>
             </div>
             <br/>
             <button type="submit" class = "btn btn-primary">Update</button>

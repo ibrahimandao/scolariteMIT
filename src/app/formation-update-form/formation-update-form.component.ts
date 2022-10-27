@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Formation } from '../formation/Formation';
+import { Formation } from '../models/Formation';
 import { FormationService } from '../services/formation/FormationService';
 
 @Component({

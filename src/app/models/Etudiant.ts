@@ -1,4 +1,4 @@
-import { Formation } from "../formation/Formation";
+import { Formation } from "./Formation";
 
 export class Etudiant{
    

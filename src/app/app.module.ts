@@ -13,6 +13,12 @@ import { FormationComponent } from './formation/formation.component';
 import { FormationUpdateFormComponent } from './formation-update-form/formation-update-form.component';
 import { EtudiantUpdateFormComponent } from './etudiant-update-form/etudiant-update-form.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ModuleComponent } from './module/module.component';
+import { FormateurComponent } from './formateur/formateur.component';
+import { FormateurAddComponent } from './formateur-add/formateur-add.component';
+import { FormateurUpdateComponent } from './formateur-update/formateur-update.component';
+import { ModuleUpdateComponent } from './module-update/module-update.component';
+import { ModuleAddComponent } from './module-add/module-add.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormationFormsComponent,
     FormationComponent,
     FormationUpdateFormComponent,
-    EtudiantUpdateFormComponent
+    EtudiantUpdateFormComponent,
+    ModuleComponent,
+    FormateurComponent,
+    FormateurAddComponent,
+    FormateurUpdateComponent,
+    ModuleUpdateComponent,
+    ModuleAddComponent
   ],
   imports: [
     BrowserModule,
