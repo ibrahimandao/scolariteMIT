@@ -19,6 +19,9 @@ import { FormateurAddComponent } from './formateur-add/formateur-add.component';
 import { FormateurUpdateComponent } from './formateur-update/formateur-update.component';
 import { ModuleUpdateComponent } from './module-update/module-update.component';
 import { ModuleAddComponent } from './module-add/module-add.component';
+import { FormationmoduleComponent } from './formationmodule/formationmodule.component';
+import { FormationmoduleAddComponent } from './formationmodule-add/formationmodule-add.component';
+import { FormationmoduleUpdateComponent } from './formationmodule-update/formationmodule-update.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { ModuleAddComponent } from './module-add/module-add.component';
     FormateurAddComponent,
     FormateurUpdateComponent,
     ModuleUpdateComponent,
-    ModuleAddComponent
+    ModuleAddComponent,
+    FormationmoduleComponent,
+    FormationmoduleAddComponent,
+    FormationmoduleUpdateComponent
   ],
   imports: [
     BrowserModule,

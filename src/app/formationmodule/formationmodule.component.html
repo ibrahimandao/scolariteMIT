@@ -8,11 +8,13 @@
   <body>
     <div class="container">
       <h1>Liste des modules</h1>
-      <a class="nav-link" routerLink="/addmodule"><img src="../../assets/ajout_module.png" alt="Ajouter un nouveau module" width="25px" height="25px"></a>
+      <a class="nav-link" routerLink="/addformationmodule"><img src="../../assets/ajout_module.png" alt="Ajouter un nouveau module" width="25px" height="25px"></a>
       <table class="table">
         <thead>
           <tr>
-            <th>Descriptif</th>
+            <th>Module</th>
+            <th>Formation</th>
+            <th>Niveau</th>
             <th>Nom formateur</th>
             <th>Prénom formateur</th>
             <th>Email formateur</th>  
@@ -20,14 +22,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of modules | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord}">
-            <td>{{item.descriptif}}</td>
-            <td>{{item.formateur.name}}</td>
-            <td>{{item.formateur.firstname}}</td>
-            <td>{{item.formateur.email}}</td>            
+          <tr *ngFor="let item of formationmodules | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord}">
+            <td>{{item.module.descriptif}}</td>
+            <td>{{item.formation.libelle}}</td>
+            <td>{{item.formation.niveau}}</td>
+            <td>{{item.module.formateur.name}}</td>
+            <td>{{item.module.formateur.firstname}}</td>
+            <td>{{item.module.formateur.email}}</td>            
             <td>
               <a routerLink="/updatemodule/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
-              <a (click)="deletemodule(item.id)" href="/formateur"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
+              <a (click)="deletemodule(item.id)" href="/module"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
             </td>
           </tr>          
         </tbody>
@@ -39,3 +43,4 @@
     </div>
   </body>
 </html>
+

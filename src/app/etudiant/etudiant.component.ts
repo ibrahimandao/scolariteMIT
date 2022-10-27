@@ -25,9 +25,4 @@ export class EtudiantComponent implements OnInit {
   deleteEtudiant(id : number) {
     
   }
-
-
-  updateEtudiant(id : number) {
-    
-  }   
 }

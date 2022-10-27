@@ -26,7 +26,11 @@ export class FormationUpdateFormComponent implements OnInit {
 
    updateFormation(){
     this.formation = new Formation(this.formationform.value.libelle,this.formationform.value.niveau);
-    this.service.update(this.router.snapshot.params['id'],this.formation).subscribe((data: any) => {     
+    this.service.update(this.router.snapshot.params['id'],this.formation).subscribe((data: any) => { 
+      this.formationform = this.fb.group({
+        libelle: [],
+        niveau: [],
+      });    
       this.alerte = true;
     });
   }

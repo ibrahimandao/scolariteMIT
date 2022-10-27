@@ -32,7 +32,11 @@ export class FormateurUpdateComponent implements OnInit {
   updateFormateur(){
     this.formateur = Formateur.loadFromFormGroup(this.formateurform.value);
     this.service.update(this.router.snapshot.params['id'],this.formateur).subscribe((data: any) => { 
-         
+      this.formateurform = this.fb.group({
+        name : [],
+        email : [],
+        firstname : []
+      });
       this.alerte = true;
     });
   }
