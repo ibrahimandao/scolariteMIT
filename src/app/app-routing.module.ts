@@ -10,6 +10,7 @@ import { FormationFormsComponent } from './formation-forms/formation-forms.compo
 import { FormationUpdateFormComponent } from './formation-update-form/formation-update-form.component';
 import { FormationComponent } from './formation/formation.component';
 import { FormationmoduleAddComponent } from './formationmodule-add/formationmodule-add.component';
+import { FormationmoduleUpdateComponent } from './formationmodule-update/formationmodule-update.component';
 import { FormationmoduleComponent } from './formationmodule/formationmodule.component';
 import { ModuleAddComponent } from './module-add/module-add.component';
 import { ModuleUpdateComponent } from './module-update/module-update.component';
@@ -32,7 +33,7 @@ const routes: Routes = [
   {path:'updateetudiant/:id', component :EtudiantUpdateFormComponent},
   {path:'updateformateur/:id', component :FormateurUpdateComponent},
   {path:'updatemodule/:id', component :ModuleUpdateComponent},
-  {path:'updateformationmodule/:id', component: FormationmoduleAddComponent},
+  {path:'updateformationmodule/:id', component: FormationmoduleUpdateComponent},
 
   {path:'',redirectTo:'/etudiant',pathMatch:'full'}
 ];

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Formationmodule } from 'src/app/models/Formationmodule';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,11 +16,15 @@ export class FormationmoduleService {
      return this.http.get(this.endpoint + 'FormationModule/all');
   }
 
-  /*add(form : Module){
-    return this.http.post(this.endpoint + 'Module/add/',form);
+  findById(id: number) {
+    return this.http.get(this.endpoint + 'FormationModule/find/'+ id +'/');
+ }
+
+  add(form : Formationmodule){
+    return this.http.post(this.endpoint + 'FormationModule/add/',form);
   }
 
-  update(id: number,form : Module){
-    return this.http.put(this.endpoint + 'Module/update/'+ id +'/',form);
-  }*/
+  update(id: number,form : Formationmodule){
+    return this.http.put(this.endpoint + 'FormationModule/update/'+ id +'/',form);
+  }
 }

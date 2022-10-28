@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Liste des modules</h1>
+      <h1>Liste des modules par formation</h1>
       <a class="nav-link" routerLink="/addformationmodule"><img src="../../assets/ajout_module.png" alt="Ajouter un nouveau module" width="25px" height="25px"></a>
       <table class="table">
         <thead>
@@ -30,8 +30,8 @@
             <td>{{item.module.formateur.firstname}}</td>
             <td>{{item.module.formateur.email}}</td>            
             <td>
-              <a routerLink="/updatemodule/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
-              <a (click)="deletemodule(item.id)" href="/module"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
+              <a routerLink="/updateformationmodule/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
+              <a (click)="deleteformationmodule(item.id)" href="/module"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
             </td>
           </tr>          
         </tbody>

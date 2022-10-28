@@ -23,7 +23,7 @@ export class FormationmoduleComponent implements OnInit {
   }
 
 
-  deletemodule(id : number){
+  deleteformationmodule(id : number){
 
   }
 }
