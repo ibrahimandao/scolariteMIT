@@ -24,6 +24,7 @@ export class FormationmoduleComponent implements OnInit {
 
 
   deleteformationmodule(id : number){
-
+    this.service.delete(id).subscribe(() => {      
+    });
   }
 }

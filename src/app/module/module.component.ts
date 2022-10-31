@@ -24,6 +24,7 @@ export class ModuleComponent implements OnInit {
   }
 
   deletemodule(id : number){
-
+    this.service.delete(id).subscribe(() => {
+    });
   }
 }

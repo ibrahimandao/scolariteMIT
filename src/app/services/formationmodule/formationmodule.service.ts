@@ -27,4 +27,8 @@ export class FormationmoduleService {
   update(id: number,form : Formationmodule){
     return this.http.put(this.endpoint + 'FormationModule/update/'+ id +'/',form);
   }
+
+  delete(id : number){
+    return this.http.delete(this.endpoint + 'FormationModule/delete/'+ id +'/');
+  }
 }

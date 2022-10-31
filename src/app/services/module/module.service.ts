@@ -17,6 +17,10 @@ export class ModuleService {
        return this.http.get(this.endpoint + 'Module/all/');
     }
 
+    findById(id : number) {
+      return this.http.get(this.endpoint + 'Module/find/' + id +'/');
+    }
+
     add(form : Module){
       return this.http.post(this.endpoint + 'Module/add/',form);
     }
@@ -25,7 +29,7 @@ export class ModuleService {
       return this.http.put(this.endpoint + 'Module/update/'+ id +'/',form);
     }
 
-    /*delete(id : number){
-      return this.http.delete(this.endpoint + 'Formateur/delete/'+ id +'/');
-    }*/
+    delete(id : number){
+      return this.http.delete(this.endpoint + 'Module/delete/'+ id +'/');
+    }
 }

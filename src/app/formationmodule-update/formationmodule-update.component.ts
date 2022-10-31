@@ -42,7 +42,8 @@ export class FormationmoduleUpdateComponent implements OnInit {
   }
 
   updateFormationModule(){
-    this.formationModule = new Formationmodule(this.formationmoduleform.value.moduleId,this.formationmoduleform.value.formateurId)
+    this.formationModule = new Formationmodule(this.formationmoduleform.value.moduleId,this.formationmoduleform.value.formationId)
+    console.log(this.formationModule)
     this.service.update(this.router.snapshot.params['id'],this.formationModule).subscribe((data: any) => {  
       this.formationmoduleform = this.fb.group({      
         moduleId : [], 
