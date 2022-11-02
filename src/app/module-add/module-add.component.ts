@@ -20,6 +20,7 @@ export class ModuleAddComponent implements OnInit {
     this.moduleform = this.fb.group({
       descriptif : [], 
       formateurId: [],
+      isOneline:[]
     });
 
     this.serviceFormateur.findAll().subscribe((data: any) => {
@@ -28,12 +29,13 @@ export class ModuleAddComponent implements OnInit {
   }
 
   addModule(){
-    this.module = new Module(0,this.moduleform.value.descriptif,'test','test','test',this.moduleform.value.formateurId)
+    this.module = new Module(0,this.moduleform.value.descriptif,'test','test','test',this.moduleform.value.formateurId,this.moduleform.value.isOneline)
 
     this.service.add(this.module).subscribe((data: any) => {     
       this.moduleform = this.fb.group({
         descriptif : [], 
         formateurId: [],
+        isOneline:[]
       });
 
       this.alerte = true;
