@@ -13,7 +13,45 @@
      </div>
       <h1>Rattachement d'un module à une formation</h1>
       <form [formGroup]="formationmoduleform" (ngSubmit)="addFormationModule()">
-                     
+      
+         <div class="form-group">
+            <label>Date début</label>
+            <input placeholder="yyyy-MM-jj"  class="w-25 form-control"  formControlName="dateDebut"/>
+         </div>
+
+         <div class="form-group">
+            <label>Date fin</label>
+            <input placeholder="yyyy-MM-jj"   class="w-25 form-control"  formControlName="dateFin"/>
+         </div>
+
+         <div class="form-group">
+            <label>Heure de début</label>
+            <input placeholder="00h"  class="w-25 form-control"  formControlName="creneauHoraireDebut"/>
+         </div>
+
+         <div class="form-group">
+            <label>Heure de fin</label>
+            <input placeholder="00h"  class="w-25 form-control"  formControlName="creneauHoraireFin"/>
+         </div>
+
+         <div class="form-group">
+            <label>Jour</label> 
+            <select   class="w-25 form-control"  formControlName="jourSemaine">
+               <option *ngFor="let item of jourDeSemaine" value="{{item.id}}">
+                  {{item.jour}}
+               </option>                  
+            </select>          
+         </div>
+
+         <div class="form-group">
+            <label>Fréquence</label> 
+            <select   class="w-25 form-control"  formControlName="periodicite">
+               <option *ngFor="let item of periodiciteList" value="{{item.id}}">
+                  {{item.libelle}}
+               </option>                  
+            </select>          
+         </div>
+         
         <div class="form-group">
             <label>Module</label>
             <select   class="w-25 form-control"  formControlName="moduleId">
@@ -23,17 +61,20 @@
             </select>
          </div>
 
-            <div class="form-group">
-               <label>Formation</label>
-               <select   class="w-25 form-control"  formControlName="formationId">
-                  <option *ngFor="let item of formations" value="{{item.id}}">
-                     {{item.libelle}}
-                  </option>                  
-               </select>
-            </div>
+         <div class="form-group">
+            <label>Formation</label>
+            <select   class="w-25 form-control"  formControlName="formationId">
+               <option *ngFor="let item of formations" value="{{item.id}}">
+                  {{item.libelle}}
+               </option>                  
+            </select>
+         </div>
+   
             <br/>
             <button type="submit" class = "btn btn-primary">Valider</button>
       </form>
 </div>
 </body>
 </html>
+
+<pre>{{formationmoduleform.value | json }}</pre>

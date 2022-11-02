@@ -15,19 +15,39 @@
             <th>Module</th>
             <th>Formation</th>
             <th>Niveau</th>
-            <th>Nom formateur</th>
-            <th>Prénom formateur</th>
+            <th>Du</th>
+            <th>Au</th>
+            <th>Jour</th>
+            <th>Créneau</th>
+            <th>Périodicité</th>
+            <th>Formateur</th>
             <th>Email formateur</th>  
-             <th>Action</th>      
+            <th>Action</th>      
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of formationmodules | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord}">
             <td>{{item.module.descriptif}}</td>
             <td>{{item.formation.libelle}}</td>
-            <td>{{item.formation.niveau}}</td>
-            <td>{{item.module.formateur.name}}</td>
-            <td>{{item.module.formateur.firstname}}</td>
+            <td>{{item.formation.niveau}} année</td>
+            <td>{{item.dateDebut | date}}</td>
+            <td>{{item.dateFin  | date}}</td>
+            <div [ngSwitch]="item.jourSemaine">
+              <td *ngSwitchCase="0">Dimanche</td> 
+              <td *ngSwitchCase="1">Lundi</td>
+              <td *ngSwitchCase="2">Mardi</td> 
+              <td *ngSwitchCase="3">Mercredi</td>
+              <td *ngSwitchCase="4">Jeudi</td> 
+              <td *ngSwitchCase="5">Vendredi</td>
+              <td *ngSwitchCase="6">Samedi</td>
+              <td *ngSwitchDefault>-</td>
+            </div>
+            <td>{{item.creneauHoraireDebut}}-{{item.creneauHoraireFin}}</td>
+            <div [ngSwitch]="item.periodicite">
+              <td *ngSwitchCase="0">Quotidien</td> 
+              <td *ngSwitchCase="1">Hebdomadaire</td>
+            </div>
+            <td>{{item.module.formateur.name}} {{item.module.formateur.firstname}}</td>
             <td>{{item.module.formateur.email}}</td>            
             <td>
               <a routerLink="/updateformationmodule/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
@@ -43,4 +63,5 @@
     </div>
   </body>
 </html>
+
 
