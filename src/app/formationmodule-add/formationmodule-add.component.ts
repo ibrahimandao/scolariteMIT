@@ -4,6 +4,10 @@ import { Formationmodule } from '../models/Formationmodule';
 import { FormationService } from '../services/formation/FormationService';
 import { FormationmoduleService } from '../services/formationmodule/formationmodule.service';
 import { ModuleService } from '../services/module/module.service';
+import { CalendarOptions, defineFullCalendarElement } from '@fullcalendar/web-component';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
+defineFullCalendarElement();
 
 @Component({
   selector: 'app-formationmodule-add',
@@ -17,6 +21,9 @@ export class FormationmoduleAddComponent implements OnInit {
   formations : any[] = [];
   jourDeSemaine  = [{id:0,jour:"Dimanche"},{id:1,jour:"Lundi"},{id:2,jour:"Mardi"},{id:3,jour:"Mercredi"},{id:4,jour:"Jeudi"},{id:5,jour:"Vendredi"},{id:6,jour:"Samedi"}]
   periodiciteList  = [{id:0,libelle:"Quotidien"},{id:1,libelle:"Hebdomadaire"}]
+
+  isOpen = true;
+  myDate = Date.now;
 
   modules : any[] = [];
   constructor(private fb : FormBuilder,private service : FormationmoduleService,private serviceFormation : FormationService,private serviceModule : ModuleService) { }
