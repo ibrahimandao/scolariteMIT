@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup } from '@angular/forms';
 
-import { Etudiant } from '../etudiant/Etudiant';
-import { Formation } from '../formation/Formation';
+import { Etudiant } from '../models/Etudiant';
+import { Formation } from '../models/Formation';
 import { EtudiantService } from '../services/etudiant/etudiant.service';
 import { FormationService } from '../services/formation/FormationService';
 
@@ -12,7 +12,7 @@ import { FormationService } from '../services/formation/FormationService';
   styleUrls: ['./etudiant-forms.component.css']
 })
 export class EtudiantFormsComponent implements OnInit {
-
+  alerte = false;
   etudiantform : FormGroup = new FormGroup('');
   etudiant = new Etudiant();
   formations : any[] = [];
@@ -38,7 +38,21 @@ export class EtudiantFormsComponent implements OnInit {
   addStudent(){
     this.etudiant = Etudiant.loadFromFormGroup(this.etudiantform.value);
     this.service.add(this.etudiant).subscribe((data: any) => {     
-      console.log(data);
+      this.etudiantform = this.fb.group({
+        name : [],
+        email : [],
+        phone : [],
+        matricule : [],
+        city : [],
+        firstname : [], 
+        formationId: [],
+      });
+
+      this.alerte = true;
     });
+  }
+
+  CloseAlerte(){
+    this.alerte = false;
   }
 }

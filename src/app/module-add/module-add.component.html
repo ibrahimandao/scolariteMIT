@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>Scolarité MIT university</title>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     </head>
+     <body>
+    <div class="container">
+      <div *ngIf="alerte" class="alert alert-success alert-dismissible fade show w-25" role="alert">
+         <strong>Ajout effectué avec succès!</strong>
+         <button (click)="CloseAlerte()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+     </div>
+      <h1>Ajout d'un module de cours</h1>
+      <form [formGroup]="moduleform" (ngSubmit)="addModule()">
+            <div class="form-group">
+               <label>Descriptif</label>
+               <input type="text"  class="w-25 form-control" formControlName="descriptif">
+            </div> 
+            
+            <div class="form-group">
+               <label>Cours en ligne / présentiel : </label>
+               <input type="checkbox" class="form-check-input"  formControlName="isOneline">
+            </div>
+
+            <div class="form-group">
+               <label>Formateur</label>
+               <select   class="w-25 form-control"  formControlName="formateurId">
+                  <option *ngFor="let item of formateurs" value="{{item.id}}">
+                     {{item.name}} {{item.firstname}} 
+                  </option>                  
+               </select>
+            </div>
+            <br/>
+            <button type="submit" class = "btn btn-primary">Valider</button>
+      </form>
+</div>
+</body>
+</html>

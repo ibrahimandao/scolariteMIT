@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Formation } from '../formation/Formation';
+import { Formation } from '../models/Formation';
 import { FormationService } from '../services/formation/FormationService';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormationService } from '../services/formation/FormationService';
   styleUrls: ['./formation-forms.component.css']
 })
 export class FormationFormsComponent implements OnInit {
-
+  alerte = false;
   formationform : FormGroup = new FormGroup('');
   formation = new Formation();
   constructor(private fb : FormBuilder,private service : FormationService) { }
@@ -25,7 +25,16 @@ export class FormationFormsComponent implements OnInit {
    addFormation(){
     this.formation = new Formation(this.formationform.value.libelle,this.formationform.value.niveau);
     this.service.add(this.formation).subscribe((data: any) => {     
-      console.log(data);
+      this.formationform = this.fb.group({
+        libelle: [],
+        niveau: [],
+      });
+
+      this.alerte = true;
     });
+  }
+
+  CloseAlerte(){
+    this.alerte = false;
   }
 }

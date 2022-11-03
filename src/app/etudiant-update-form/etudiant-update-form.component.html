@@ -7,6 +7,10 @@
      </head>
      <body>
     <div class="container">
+      <div *ngIf="alerte" class="alert alert-success alert-dismissible fade show w-25" role="alert">
+         <strong>Mise à jour effectuée avec succès!</strong>
+         <button (click)="CloseAlerte()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+     </div>
       <h1>Mise à jour d'un étudiant</h1>
       <form [formGroup]="etudiantform" (ngSubmit)="updateEtudiant()">
             <div class="form-group">

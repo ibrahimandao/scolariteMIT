@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des formateurs</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Liste des formateurs</h1>
+      <a class="nav-link" routerLink="/addformateur"><img src="../../assets/ajout.png" alt="Ajouter un nouveau formateur" width="25px" height="25px"></a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>  
+            <th>Action</th>          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of formateurs | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord}">
+            <td>{{item.name}}</td>
+            <td>{{item.firstname}}</td>
+            <td>{{item.email}}</td>            
+            <td>
+              <a routerLink="/updateformateur/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
+              <a (click)="deleteformateur(item.id)" href="/formateur"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+
+      <div class="pagination">
+          <pagination-controls (pageChange)="page=$event"></pagination-controls>
+      </div>
+    </div>
+  </body>
+</html>

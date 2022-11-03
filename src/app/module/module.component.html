@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des modules</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Liste des modules</h1>
+      <a class="nav-link" routerLink="/addmodule"><img src="../../assets/ajout_module.png" alt="Ajouter un nouveau module" width="25px" height="25px"></a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Descriptif</th>
+            <th>Cours en ligne</th>
+            <th>Nom formateur</th>
+            <th>Prénom formateur</th>
+            <th>Email formateur</th>  
+             <th>Action</th>      
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of modules | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord}">
+            <td>{{item.descriptif}}</td>
+            <td><input type="checkbox" [checked]="item.isOneline" disabled></td>
+            <td>{{item.formateur.name}}</td>
+            <td>{{item.formateur.firstname}}</td>
+            <td>{{item.formateur.email}}</td>            
+            <td>
+              <a routerLink="/updatemodule/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
+              <a (click)="deletemodule(item.id)" href="/module"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
+            </td>
+          </tr>          
+        </tbody>
+      </table>
+
+      <div class="pagination">
+          <pagination-controls (pageChange)="page=$event"></pagination-controls>
+      </div>
+    </div>
+  </body>
+</html>

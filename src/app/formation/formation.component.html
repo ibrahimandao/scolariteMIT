@@ -7,7 +7,8 @@
   </head>
   <body>
     <div class="container">
-      <h1>Liste des formations</h1>
+      <h1>Liste des formations</h1>     
+      <a routerLink="/addformation"><img src="../../assets/ajout_formation.png" alt="Ajouter une nouvelle formation" width="25px" height="25px"></a>
       <table class="table">
         <thead>
           <tr>
@@ -17,9 +18,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of formations">
+          <tr *ngFor="let item of formations | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord}">
             <td>{{item.libelle}}</td>
-            <td>{{item.niveau}}</td>  
+            <td>{{item.niveau}} ième année</td>  
             <td>
               <a routerLink="/updateformation/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
               <a (click)="deleteFormation(item.id)" href="/formation"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
@@ -27,6 +28,9 @@
           </tr>          
         </tbody>
       </table>
+      <div class="pagination">
+        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+    </div>
     </div>
   </body>
 </html>

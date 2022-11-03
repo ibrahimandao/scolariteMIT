@@ -1,20 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { environment } from  'src/environments/environment';
-import { Formation } from 'src/app/formation/Formation';
+import { Formation } from 'src/app/models/Formation';
 
 @Injectable({
     providedIn: 'root'
   })
   export class FormationService {
-    endpoint = environment.url;
-    result : any = [];
-    // Http Headers
-    httpOptions = {
-        headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        }),
-    };
+    endpoint = environment.url;   
 
     constructor(private http: HttpClient) { }
 
