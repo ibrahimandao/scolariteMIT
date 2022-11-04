@@ -13,7 +13,54 @@
      </div>
       <h1>Rattachement d'un module à une formation</h1>
       <form [formGroup]="formationmoduleform" (ngSubmit)="updateFormationModule()">
-                     
+        <div class="form-group">          
+            <mat-form-field color="accent" appearance="fill" class="w-25 form-control">
+             <mat-label>Date début</mat-label>
+             <input matInput [matDatepicker]="picker1" formControlName="dateDebut">
+             <mat-hint>MM/DD/YYYY</mat-hint>
+             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+             <mat-datepicker #picker1></mat-datepicker>
+           </mat-form-field>
+       </div>
+
+       <div class="form-group">
+          <mat-form-field color="accent" appearance="fill" class="w-25 form-control">
+             <mat-label>Date fin</mat-label>
+             <input matInput [matDatepicker]="picker2" formControlName="dateFin">
+             <mat-hint>MM/DD/YYYY</mat-hint>
+             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+             <mat-datepicker #picker2 ></mat-datepicker>
+           </mat-form-field>
+       </div>
+
+       <div class="form-group">
+          <label>Heure de début</label>
+          <input placeholder="00h"  class="w-25 form-control"  formControlName="creneauHoraireDebut"/>
+       </div>
+
+       <div class="form-group">
+          <label>Heure de fin</label>
+          <input placeholder="00h"  class="w-25 form-control"  formControlName="creneauHoraireFin"/>
+       </div>
+
+       <div class="form-group">
+          <label>Jour</label> 
+          <select   class="w-25 form-control"  formControlName="jourSemaine">
+             <option *ngFor="let item of jourDeSemaine" value="{{item.id}}">
+                {{item.jour}}
+             </option>                  
+          </select>          
+       </div>
+
+       <div class="form-group">
+          <label>Fréquence</label> 
+          <select   class="w-25 form-control"  formControlName="periodicite">
+             <option *ngFor="let item of periodiciteList" value="{{item.id}}">
+                {{item.libelle}}
+             </option>                  
+          </select>          
+       </div>
+
         <div class="form-group">
             <label>Module</label>
             <select   class="w-25 form-control"  formControlName="moduleId">
@@ -37,3 +84,5 @@
 </div>
 </body>
 </html>
+
+<pre>{{formationmoduleform.value | json }}</pre>

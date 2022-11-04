@@ -8,7 +8,6 @@ import { ModuleService } from '../services/module/module.service';
   styleUrls: ['./module.component.css']
 })
 export class ModuleComponent implements OnInit {
-  module : Module = new Module();
   totalRecord:number = 0;
   page : number = 1;
 

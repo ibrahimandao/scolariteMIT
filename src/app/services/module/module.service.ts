@@ -32,4 +32,8 @@ export class ModuleService {
     delete(id : number){
       return this.http.delete(this.endpoint + 'Module/delete/'+ id +'/');
     }
+
+    findModuleFormation(formationid : number) {
+      return this.http.get(this.endpoint + 'FormationModule/Formation/'+ formationid +'/modules');
+   }
 }

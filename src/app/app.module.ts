@@ -26,7 +26,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatDateFormats, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { ListemoduleformationComponent } from './listemoduleformation/listemoduleformation.component';
+import { ListeetudiantformationComponent } from './listeetudiantformation/listeetudiantformation.component';
+
+export const MY_FORMAT: MatDateFormats = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'DD/MM/YYYY',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -45,7 +59,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     ModuleAddComponent,
     FormationmoduleComponent,
     FormationmoduleAddComponent,
-    FormationmoduleUpdateComponent
+    FormationmoduleUpdateComponent,
+    ListemoduleformationComponent,
+    ListeetudiantformationComponent
   ],
   imports: [
     BrowserModule,
@@ -59,8 +75,13 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     MatNativeDateModule
   ],
-  providers: [EtudiantService],
+  providers: [EtudiantService,
+    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMAT }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
+
+
