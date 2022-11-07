@@ -11,6 +11,7 @@ export class FormateurComponent implements OnInit {
   formateur : Formateur = new Formateur();
   totalRecord:number = 0;
   page : number = 1;
+  searchText : any;
 
   formateurs : any = [];
   constructor(private service : FormateurService) { }

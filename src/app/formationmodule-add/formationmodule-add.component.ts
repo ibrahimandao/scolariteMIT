@@ -6,6 +6,7 @@ import { FormationmoduleService } from '../services/formationmodule/formationmod
 import { ModuleService } from '../services/module/module.service';
 import { CalendarOptions, defineFullCalendarElement } from '@fullcalendar/web-component';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { DateFormatService } from '../services/Common/date-format.service';
 
 defineFullCalendarElement();
 
@@ -26,7 +27,7 @@ export class FormationmoduleAddComponent implements OnInit {
   myDate = Date.now;
 
   modules : any[] = [];
-  constructor(private fb : FormBuilder,private service : FormationmoduleService,private serviceFormation : FormationService,private serviceModule : ModuleService) { }
+  constructor(private fb : FormBuilder,private service : FormationmoduleService,private serviceFormation : FormationService,private serviceModule : ModuleService,private dateFormat : DateFormatService) { }
 
   ngOnInit(): void {
 
@@ -56,8 +57,8 @@ export class FormationmoduleAddComponent implements OnInit {
   }
 
   addFormationModule(){
-    this.formationModule = new Formationmodule(this.formationmoduleform.value.moduleId,this.formationmoduleform.value.formationId,this.formationmoduleform.value.dateDebut,this.formationmoduleform.value.dateFin,this.formationmoduleform.value.creneauHoraireDebut,this.formationmoduleform.value.creneauHoraireFin,this.formationmoduleform.value.periodicite,this.formationmoduleform.value.jourSemaine);
-    console.log(this.formationModule)
+    this.formationModule = new Formationmodule(this.formationmoduleform.value.moduleId,this.formationmoduleform.value.formationId,this.dateFormat.formatToISO8601Date(this.formationmoduleform.value.dateDebut),this.dateFormat.formatToISO8601Date(this.formationmoduleform.value.dateFin),this.formationmoduleform.value.creneauHoraireDebut,this.formationmoduleform.value.creneauHoraireFin,this.formationmoduleform.value.periodicite,this.formationmoduleform.value.jourSemaine);
+    //console.log(this.dateFormat.formatToISO8601Date(this.formationmoduleform.value.dateFin))
     this.service.add(this.formationModule).subscribe((data: any) => {     
       this.formationmoduleform = this.fb.group({      
         moduleId : [], 

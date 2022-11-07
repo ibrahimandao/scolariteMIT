@@ -7,8 +7,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Liste des étudiants</h1>
-      <a class="nav-link" routerLink="/addetudiant"><img src="../../assets/ajout.png" alt="Ajouter un nouvel étudiant" width="25px" height="25px"></a>
+      <h1>Liste des étudiants inscrits en <b>{{libelle}}</b></h1>
       <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search by name, firstname etc...">
       <table class="table">
         <thead>
@@ -21,11 +20,10 @@
             <th>Téléphone</th>
             <th>Formation</th>
             <th>Niveau</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of etudiants | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord} | filter : searchText">
+          <tr *ngFor="let item of etudiants | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord} | filter:searchText">
             <td>{{item.name}}</td>
             <td>{{item.firstname}}</td>
             <td>{{item.email}}</td>
@@ -33,11 +31,7 @@
             <td>{{item.matricule}}</td>
             <td>{{item.phone}}</td>
             <td>{{item.formation.libelle}}</td>
-            <td>{{item.formation.niveau}} iéme année</td>
-            <td>
-              <a routerLink="/updateetudiant/{{item.id}}"><img src="../../assets/modif.jfif" width="25px" height="25px"></a>
-              <a (click)="deleteEtudiant(item.id)" href="/etudiant"><img src="../../assets/supp.jpg" width="25px" height="25px"></a>
-            </td>
+            <td>{{item.formation.niveau}} iéme année</td>            
           </tr>          
         </tbody>
       </table>

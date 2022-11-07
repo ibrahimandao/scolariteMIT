@@ -4,12 +4,13 @@ import { Etudiant } from '../../models/Etudiant';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EtudiantService {  
-  endpoint = 'http://localhost:5154/api/';
+  endpoint = environment.url;
   result : any = [];
 
   // Http Headers
@@ -38,6 +39,12 @@ export class EtudiantService {
 
   findAll() {
     this.result = this.http.get(this.endpoint + 'Etudiant/all/');
+
+    return this.result;
+  }
+
+  findStudentByFormationId(formationId : number) {
+    this.result = this.http.get(this.endpoint + 'Etudiant/Formation/'+ formationId +'/list');
 
     return this.result;
   }

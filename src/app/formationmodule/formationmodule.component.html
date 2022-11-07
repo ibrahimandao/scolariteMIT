@@ -30,8 +30,8 @@
             <td>{{item.module.descriptif}}</td>
             <td>{{item.formation.libelle}}</td>
             <td>{{item.formation.niveau}} année</td>
-            <td>{{item.dateDebut | date}}</td>
-            <td>{{item.dateFin  | date}}</td>
+            <td>{{item.dateDebut | date:'dd/MM/yyyy'}}</td>
+            <td>{{item.dateFin  | date:'dd/MM/yyyy'}}</td>
             <div [ngSwitch]="item.jourSemaine">
               <td *ngSwitchCase="0">Dimanche</td> 
               <td *ngSwitchCase="1">Lundi</td>
