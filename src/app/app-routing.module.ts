@@ -40,6 +40,7 @@ const routes: Routes = [
   {path:'listemoduleformation/:id', component: ListemoduleformationComponent},
   {path:'listeetudiant/:id', component: ListeetudiantformationComponent},
 
+
   {path:'',redirectTo:'/etudiant',pathMatch:'full'}
 ];
 

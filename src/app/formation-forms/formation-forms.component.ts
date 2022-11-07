@@ -12,6 +12,7 @@ export class FormationFormsComponent implements OnInit {
   alerte = false;
   formationform : FormGroup = new FormGroup('');
   formation = new Formation();
+  listNiveau  = Formation.getListNiveau();
   constructor(private fb : FormBuilder,private service : FormationService) { }
 
 

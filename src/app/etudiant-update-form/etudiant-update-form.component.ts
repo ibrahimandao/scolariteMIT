@@ -37,7 +37,16 @@ export class EtudiantUpdateFormComponent implements OnInit {
 
   updateEtudiant(){   
     this.etudiant = Etudiant.loadFromFormGroup(this.etudiantform.value);
-    this.service.update(this.router.snapshot.params['id'],this.etudiant).subscribe((data: any) => {     
+    this.service.update(this.router.snapshot.params['id'],this.etudiant).subscribe((data: any) => { 
+      this.etudiantform = this.fb.group({
+        name : [],
+        email : [],
+        phone : [],
+        matricule : [],
+        city : [],
+        firstname : [], 
+        formationId: [],
+      });    
       this.alerte = true;
     });
   }

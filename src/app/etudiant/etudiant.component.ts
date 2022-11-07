@@ -12,6 +12,8 @@ export class EtudiantComponent implements OnInit {
   totalRecord:number = 0;
   page : number = 1;
 
+  searchText : any;
+
   etudiants : any = [];
   constructor(private service : EtudiantService) { }
 

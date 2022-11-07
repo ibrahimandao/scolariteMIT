@@ -10,6 +10,7 @@ import { ModuleService } from '../services/module/module.service';
 export class ModuleComponent implements OnInit {
   totalRecord:number = 0;
   page : number = 1;
+  searchText : any;
 
   modules : any = [];
   constructor(private service : ModuleService) { }

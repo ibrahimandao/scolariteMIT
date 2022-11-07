@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Formationmodule } from '../models/Formationmodule';
+import { DateFormatService } from '../services/Common/date-format.service';
 import { FormationService } from '../services/formation/FormationService';
 import { FormationmoduleService } from '../services/formationmodule/formationmodule.service';
 import { ModuleService } from '../services/module/module.service';
@@ -23,7 +24,7 @@ export class FormationmoduleUpdateComponent implements OnInit {
   jourDeSemaine  = [{id:0,jour:"Dimanche"},{id:1,jour:"Lundi"},{id:2,jour:"Mardi"},{id:3,jour:"Mercredi"},{id:4,jour:"Jeudi"},{id:5,jour:"Vendredi"},{id:6,jour:"Samedi"}]
   periodiciteList  = [{id:0,libelle:"Quotidien"},{id:1,libelle:"Hebdomadaire"}]
 
-  constructor(private fb : FormBuilder,private service : FormationmoduleService,private serviceFormation : FormationService,private serviceModule : ModuleService,private router : ActivatedRoute) { }
+  constructor(private fb : FormBuilder,private service : FormationmoduleService,private serviceFormation : FormationService,private serviceModule : ModuleService,private router : ActivatedRoute,private dateFormat : DateFormatService) { }
 
   ngOnInit(): void {
     this.formationmoduleform = this.fb.group({      
@@ -52,7 +53,7 @@ export class FormationmoduleUpdateComponent implements OnInit {
   }
 
   updateFormationModule(){
-    this.formationModule = new Formationmodule(this.formationmoduleform.value.moduleId,this.formationmoduleform.value.formationId,this.formationmoduleform.value.dateDebut,this.formationmoduleform.value.dateFin,this.formationmoduleform.value.creneauHoraireDebut,this.formationmoduleform.value.creneauHoraireFin,this.formationmoduleform.value.periodicite,this.formationmoduleform.value.jourSemaine)
+    this.formationModule = new Formationmodule(this.formationmoduleform.value.moduleId,this.formationmoduleform.value.formationId,this.dateFormat.formatToISO8601Date(this.formationmoduleform.value.dateDebut),this.dateFormat.formatToISO8601Date(this.formationmoduleform.value.dateFin),this.formationmoduleform.value.creneauHoraireDebut,this.formationmoduleform.value.creneauHoraireFin,this.formationmoduleform.value.periodicite,this.formationmoduleform.value.jourSemaine)
     console.log(this.formationModule)
     this.service.update(this.router.snapshot.params['id'],this.formationModule).subscribe((data: any) => {  
       this.formationmoduleform = this.fb.group({      

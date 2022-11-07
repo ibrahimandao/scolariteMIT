@@ -11,7 +11,7 @@ export class ListemoduleformationComponent implements OnInit {
 
   totalRecord:number = 0;
   page : number = 1;
-
+  searchText : any;
   modules : any = [];
   libelle : string = ''
   constructor(private service : ModuleService,private router : ActivatedRoute) { }

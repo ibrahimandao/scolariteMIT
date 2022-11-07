@@ -29,6 +29,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDateFormats, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { ListemoduleformationComponent } from './listemoduleformation/listemoduleformation.component';
 import { ListeetudiantformationComponent } from './listeetudiantformation/listeetudiantformation.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 export const MY_FORMAT: MatDateFormats = {
   parse: {
@@ -41,6 +43,7 @@ export const MY_FORMAT: MatDateFormats = {
     monthYearA11yLabel: 'MMMM YYYY',
   },
 };
+
 
 @NgModule({
   declarations: [
@@ -73,7 +76,9 @@ export const MY_FORMAT: MatDateFormats = {
     MatDatepickerModule,
     MatInputModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    Ng2SearchPipeModule,
+    FormsModule
   ],
   providers: [EtudiantService,
     { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },
@@ -82,6 +87,9 @@ export const MY_FORMAT: MatDateFormats = {
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule { 
+
+   periodicite  = [{id:0,libelle:"Quotidien"},{id:1,libelle:"Hebdomadaire"}]
+}
 
 

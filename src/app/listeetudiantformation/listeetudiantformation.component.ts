@@ -11,6 +11,7 @@ export class ListeetudiantformationComponent implements OnInit {
   totalRecord:number = 0;
   page : number = 1;
   libelle : string = '';
+  searchText : any;
 
   etudiants : any = [];
   constructor(private service : EtudiantService,private router : ActivatedRoute) { }

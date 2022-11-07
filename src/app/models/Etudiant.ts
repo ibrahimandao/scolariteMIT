@@ -31,7 +31,7 @@ export class Etudiant{
     }   
 
     static loadFromFormGroup(data : any){
-        return new Etudiant(data.id,data.name,data.firstname,data.email,data.phone,data.matricule,data.city,data.libelle,data.niveau,data.formationId);
+        return new Etudiant(data.id,data.name,data.firstname,data.email,data.phone,"MIT",data.city,data.libelle,data.niveau,data.formationId);
     }
 
 }
