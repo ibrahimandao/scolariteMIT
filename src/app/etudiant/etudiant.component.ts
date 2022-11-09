@@ -24,7 +24,8 @@ export class EtudiantComponent implements OnInit {
     this.service.findAll().subscribe((data: Etudiant) => {
       this.etudiants = data;
       this.totalRecord = this.etudiants.lenght;
-    });   
+      localStorage.setItem('etudiants',JSON.stringify(this.etudiants));
+    });     
    
   }
   
@@ -33,24 +34,32 @@ export class EtudiantComponent implements OnInit {
   }
 
   MakePDF(){
-    this.service.findAll().subscribe((data: Etudiant) => {
-      this.etudiants = data;
-    }); 
+
+    if(localStorage.getItem('etudiants') != null)
+    {
+      this.etudiants = JSON.parse(localStorage.getItem('etudiants') || "")
+    }
+       
     
-    let flux  = "<table">
-    ";"
-    let pdf = new jsPDF('p','pt','a4');
-    /*pdf.html(this.el.nativeElement,{
+    let flux  = "<table>"
+    flux = flux + "<thead><tr><th>Nom</th><th>Prénom</th><th>Email</th><th>Ville</th><th>Matricule</th><th>Téléphone</th><th>Formation</th></tr></thead><tbody>";
+
+    for (var val of this.etudiants) {
+      flux = flux +"<tr><td>"+val.name+"</td><td>"+val.firstname+"</td><td>"+val.email+"</td><td>"+val.city+"</td><td>"+val.matricule+"</td><td>"+" "+val.phone+"</td><td>"+val.formation.libelle+"</td></tr>"
+    }
+    flux = flux + "</tbody>";
+    let pdf = new jsPDF('l','pt','a4');
+    pdf.html(flux,{
       callback : (pdf) =>{
         pdf.save("Liste etudiants.pdf");
       }
-    })*/
+    })
 
-    this.etudiants.forEach((element:Etudiant,i:number) => {
+    /*this.etudiants.forEach((element:Etudiant,i:number) => {
       pdf.text(
         element.firstname + " " + element.name+" " +element.email+" " +element.matricule+" " +element.phone+" " +element.formation.libelle+" " +element.formation.niveau+"ième année"
         ,50,50+(i*50))
     });
-    pdf.save("Liste etudiants.pdf");
+    pdf.save("Liste etudiants.pdf");*/
   }
 }
