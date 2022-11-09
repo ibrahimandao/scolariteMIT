@@ -8,6 +8,32 @@
   <body>
     <div class="container">
       <h1>Liste des modules par formation</h1>
+      <div >
+        <form [formGroup]="formationmoduleform" (ngSubmit)="RechercheFormationModule()">
+      
+          <div class="form-group">          
+               <mat-form-field color="accent" appearance="fill" class="w-25 form-control">
+                <mat-label>Date début</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="dateDebut">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field> &ensp;
+        
+              <mat-form-field color="accent" appearance="fill" class="w-25 form-control">
+                <mat-label>Date fin</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="dateFin">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2 ></mat-datepicker>
+              </mat-form-field> &ensp;
+
+              <button type="submit" class = "btn btn-primary">Rechercher</button>
+          </div>         
+          
+       </form>
+      </div>
+      
       <a class="nav-link" routerLink="/addformationmodule"><img src="../../assets/ajout_module.png" alt="Ajouter un nouveau module" width="25px" height="25px"></a>
       <table class="table">
         <thead>

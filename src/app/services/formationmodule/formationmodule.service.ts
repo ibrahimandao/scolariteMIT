@@ -16,6 +16,14 @@ export class FormationmoduleService {
      return this.http.get(this.endpoint + 'FormationModule/all');
   }
 
+  findPlaningSemaine() {
+    return this.http.get(this.endpoint + 'FormationModule/planningdelasemaine');
+ }
+
+ findPlaningByDate(dateDebut : String,dateFin : String) {
+  return this.http.get(this.endpoint + 'FormationModule/planingpardate?dateDebut='+dateDebut+'&dateFin='+dateFin);
+ }
+
   findById(id: number) {
     return this.http.get(this.endpoint + 'FormationModule/find/'+ id +'/');
  }
