@@ -21,7 +21,7 @@ export class FormationmoduleComponent implements OnInit {
       dateDebut :[],
       dateFin: []
     });
-
+   // console.log(this.formationmodules)
     this.service.findAll().subscribe((data: any) => {
       this.formationmodules = data;
       this.totalRecord = this.formationmodules.lenght;

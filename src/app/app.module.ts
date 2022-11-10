@@ -31,6 +31,7 @@ import { ListemoduleformationComponent } from './listemoduleformation/listemodul
 import { ListeetudiantformationComponent } from './listeetudiantformation/listeetudiantformation.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
+import { PlanningcourssemaineComponent } from './planningcourssemaine/planningcourssemaine.component';
 
 export const MY_FORMAT: MatDateFormats = {
   parse: {
@@ -64,7 +65,8 @@ export const MY_FORMAT: MatDateFormats = {
     FormationmoduleAddComponent,
     FormationmoduleUpdateComponent,
     ListemoduleformationComponent,
-    ListeetudiantformationComponent
+    ListeetudiantformationComponent,
+    PlanningcourssemaineComponent
   ],
   imports: [
     BrowserModule,

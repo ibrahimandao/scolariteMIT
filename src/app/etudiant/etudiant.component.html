@@ -10,18 +10,18 @@
       <h1>Liste des étudiants</h1>
       <a class="nav-link" routerLink="/addetudiant"><img src="../../assets/ajout.png" alt="Ajouter un nouvel étudiant" width="25px" height="25px"></a>
       <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search by name, firstname etc...">   
-        <table id="content_table" #content_table  class="table">
+        <table  class="table">
           <thead>
             <tr>
-              <th>Nom</th>
-              <th>Prénom</th>
-              <th>Email</th>
-              <th>Ville</th>
-              <th>Matricule</th>
-              <th>Téléphone</th>
-              <th>Formation</th>
-              <th>Niveau</th>
-              <th>Actions</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Ville</th>
+              <th scope="col">Matricule</th>
+              <th scope="col">Téléphone</th>
+              <th scope="col">Formation</th>
+              <th scope="col">Niveau</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -46,6 +46,6 @@
           <pagination-controls (pageChange)="page=$event"></pagination-controls>
       </div>
       <button (click)="MakePDF()"><img src="../../assets/pdf.png" width="50px" height="25px"></button>
-    </div>
+    </div>    
   </body>
 </html>
