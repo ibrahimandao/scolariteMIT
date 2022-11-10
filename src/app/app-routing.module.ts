@@ -17,6 +17,7 @@ import { ListemoduleformationComponent } from './listemoduleformation/listemodul
 import { ModuleAddComponent } from './module-add/module-add.component';
 import { ModuleUpdateComponent } from './module-update/module-update.component';
 import { ModuleComponent } from './module/module.component';
+import { PlanningcourssemaineComponent } from './planningcourssemaine/planningcourssemaine.component';
 
 const routes: Routes = [
   {path:'etudiant', component :EtudiantComponent}, 
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'formateur', component :FormateurComponent},
   {path:'module', component :ModuleComponent},
   {path:'formationmodule', component :FormationmoduleComponent},
+  {path:'planningsemaine', component :PlanningcourssemaineComponent},
 
   {path:'addformation', component :FormationFormsComponent},
   {path:'addformateur', component :FormateurAddComponent},

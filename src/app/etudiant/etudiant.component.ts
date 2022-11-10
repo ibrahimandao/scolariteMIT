@@ -34,21 +34,21 @@ export class EtudiantComponent implements OnInit {
   }
 
   MakePDF(){
-
+    let pdf = new jsPDF('p','pt','a2');
     if(localStorage.getItem('etudiants') != null)
     {
       this.etudiants = JSON.parse(localStorage.getItem('etudiants') || "")
     }
        
     
-    let flux  = "<table>"
+    let flux  = "<div class=\"container\"><table class=\"table\">"
     flux = flux + "<thead><tr><th>Nom</th><th>Prénom</th><th>Email</th><th>Ville</th><th>Matricule</th><th>Téléphone</th><th>Formation</th></tr></thead><tbody>";
 
     for (var val of this.etudiants) {
       flux = flux +"<tr><td>"+val.name+"</td><td>"+val.firstname+"</td><td>"+val.email+"</td><td>"+val.city+"</td><td>"+val.matricule+"</td><td>"+" "+val.phone+"</td><td>"+val.formation.libelle+"</td></tr>"
     }
-    flux = flux + "</tbody>";
-    let pdf = new jsPDF('l','pt','a4');
+    flux = flux + "</tbody></div></table>";
+    
     pdf.html(flux,{
       callback : (pdf) =>{
         pdf.save("Liste etudiants.pdf");

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des modules</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Liste des modules de la semaine</h1>          
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Formation</th>
+            <th>Niveau</th>
+            <th>Du</th>
+            <th>Au</th>
+            <th>Jour</th>
+            <th>Créneau</th>
+            <th>Périodicité</th>
+            <th>Formateur</th>
+            <th>Email formateur</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of formationmodules | paginate : {itemsPerPage:5,currentPage:page,totalItems:totalRecord}">
+            <td>{{item.module.descriptif}}</td>
+            <td>{{item.formation.libelle}}</td>
+            <td>{{item.formation.niveau}} année</td>
+            <td>{{item.dateDebut | date:'dd/MM/yyyy'}}</td>
+            <td>{{item.dateFin  | date:'dd/MM/yyyy'}}</td>
+            <div [ngSwitch]="item.jourSemaine">
+              <td *ngSwitchCase="0">Dimanche</td> 
+              <td *ngSwitchCase="1">Lundi</td>
+              <td *ngSwitchCase="2">Mardi</td> 
+              <td *ngSwitchCase="3">Mercredi</td>
+              <td *ngSwitchCase="4">Jeudi</td> 
+              <td *ngSwitchCase="5">Vendredi</td>
+              <td *ngSwitchCase="6">Samedi</td>
+              <td *ngSwitchDefault>-</td>
+            </div>
+            <td>{{item.creneauHoraireDebut}}-{{item.creneauHoraireFin}}</td>
+            <div [ngSwitch]="item.periodicite">
+              <td *ngSwitchCase="0">Quotidien</td> 
+              <td *ngSwitchCase="1">Hebdomadaire</td>
+            </div>
+            <td>{{item.module.formateur.name}} {{item.module.formateur.firstname}}</td>
+            <td>{{item.module.formateur.email}}</td>           
+            
+          </tr>          
+        </tbody>
+      </table>
+
+      <div class="pagination">
+          <pagination-controls (pageChange)="page=$event"></pagination-controls>
+      </div>
+
+      <button (click)="MakePDF()"><img src="../../assets/pdf.png" width="50px" height="25px"></button>
+    </div>
+  </body>
+</html>
+
+
+
+
