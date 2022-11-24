@@ -9,12 +9,14 @@
     <div class="container">
       <nav>  
         <ul class="nav">
-            <li class="nav-item"><a class="nav-link" routerLink="/etudiant">Etudiants</a></li>          
-            <li class="nav-item"><a class="nav-link" routerLink="/formation">Formations</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="/module">Modules</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="/formateur">Formateurs</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="/formationmodule">Planning cours</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="/planningsemaine">Planning de la semaine</a></li>
+            <li *ngIf="displayMenuEtudiant" class="nav-item"><a class="nav-link" routerLink="/etudiant">Etudiants</a></li>          
+            <li *ngIf="displayMenuFormation" class="nav-item"><a class="nav-link" routerLink="/formation">Formations</a></li>
+            <li *ngIf="displayMenuModule" class="nav-item"><a class="nav-link" routerLink="/module">Modules</a></li>
+            <li *ngIf="displayMenuFormateur" class="nav-item"><a class="nav-link" routerLink="/formateur">Formateurs</a></li>
+            <li *ngIf="displayMenuPlanning" class="nav-item"><a class="nav-link" routerLink="/formationmodule">Planning cours</a></li>
+            <li *ngIf="displayMenuPlanning" class="nav-item"><a class="nav-link" routerLink="/planningsemaine">Planning de la semaine</a></li>
+
+            <li  class="nav-item" style="float: right;"><a class="nav-link" routerLink="/login">Logout</a></li>
         </ul>
       </nav>      
     </div>

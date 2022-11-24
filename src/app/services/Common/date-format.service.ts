@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HashTable } from 'angular-hashtable';
 
 type FormatFunc = (date: Date) => string;
 @Injectable({

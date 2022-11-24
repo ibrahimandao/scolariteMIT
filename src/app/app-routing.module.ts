@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationComponent } from './authentication/authentication.component';
 import { EtudiantFormsComponent } from './etudiant-forms/etudiant-forms.component';
 import { EtudiantUpdateFormComponent } from './etudiant-update-form/etudiant-update-form.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
@@ -42,8 +43,8 @@ const routes: Routes = [
   {path:'listemoduleformation/:id', component: ListemoduleformationComponent},
   {path:'listeetudiant/:id', component: ListeetudiantformationComponent},
 
-
-  {path:'',redirectTo:'/etudiant',pathMatch:'full'}
+  {path:'login',component: AuthenticationComponent},
+  {path:'',component: AuthenticationComponent}
 ];
 
 @NgModule({
